@@ -1,0 +1,15 @@
+<div class="col-md-4">
+    <mat-list *ngFor="let ability of this.abilitiesService.abilities">
+        <mat-list-item>
+            <mat-label >{{ability.name}}</mat-label>
+        </mat-list-item>
+        <mat-divider [vertical]="true" [inset]="true"></mat-divider>
+        <mat-slider
+      thumbLabel
+      tickInterval="1"
+      min="0"
+      max="7"
+      [(ngModel)]="ability.rate"></mat-slider>
+      <mat-divider></mat-divider>
+      </mat-list>
+</div>

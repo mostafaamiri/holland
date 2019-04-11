@@ -1,0 +1,59 @@
+<div class="container">
+  <table class="table rtl">
+          <thead>
+              <td>عناوین</td>
+              <td>واقع گرا</td>
+              <td>جستجوگر</td>
+              <td>هنری</td>
+              <td>اجتماعی</td>
+              <td>متهور</td>
+              <td>قراردادی</td>
+          </thead>
+          <tr>
+              <td>فعالیت ها</td>
+              <td *ngFor="let score of getActivityScores()">{{score.value}}</td>
+          </tr>
+          <tr>
+                  <td>صلاحیت ها</td>
+                  <td *ngFor="let score of getCompetencyScores()">{{score.value}}</td>
+          </tr>
+          <tr>
+                  <td>مشاغل</td>
+                  <td *ngFor="let score of getJobScores()">{{score.value}}</td>
+          </tr>
+          <tr>
+                  <td>مهارت ها</td>
+                  <td *ngFor="let score of getSkillScore()">{{score.value}}</td>
+          </tr>
+          <tr>
+                  <td>استعداد ها</td>
+                  <td *ngFor="let score of getAbilityScore()">{{score.value}}</td>
+          </tr>  
+          <tfoot>
+              <td>مجموع</td>
+              <td *ngFor="let score of getTotlaScore()">{{score.value}}</td>
+          </tfoot>
+      </table>
+      <div class="row">
+              <div class="col-12">
+                      <div class="block">
+                        <button class="btn btn-primary" (click)="setDataSet()">بروزرسانی نمودار</button>
+                      </div>
+              </div>
+      </div>
+      
+      <div>
+        <div>
+          <div style="display: block">
+            <canvas baseChart
+              [datasets]="radarChartData"
+              [options]="radarChartOptions"
+              [labels]="radarChartLabels"
+              [chartType]="radarChartType">
+            </canvas>
+          </div>
+        </div>
+      </div>
+
+
+  </div>

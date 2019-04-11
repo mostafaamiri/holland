@@ -1,0 +1,15 @@
+<div class="col-md-4">
+  <mat-list *ngFor="let skill of this.skillsService.skills">
+    <mat-list-item>
+        <mat-label >{{skill.name}}</mat-label>
+    </mat-list-item>
+    <mat-divider [vertical]="true" [inset]="true"></mat-divider>
+    <mat-slider
+  thumbLabel
+  tickInterval="1"
+  min="0"
+  max="7" [(ngModel)]="skill.rate"></mat-slider>
+  <mat-divider></mat-divider>
+  </mat-list>
+</div>
+

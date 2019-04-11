@@ -1,0 +1,88 @@
+
+  <mat-horizontal-stepper>
+      <mat-step label="فعالیت ها" >
+          <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                    <mat-horizontal-stepper>
+                        <mat-step *ngFor="let theme of this.themesService.themes" label="{{theme.faName}}">
+                            <mat-list *ngFor="let question of getActivityQs(theme.enName)">
+                                <mat-list-item *ngIf="question.type == theme.enName">
+                                    <label> {{question.text}}
+                                    </label>
+                                </mat-list-item>
+                                <mat-list-item *ngIf="question.type == theme.enName">
+                                    <mat-radio-group [(ngModel)]="question.answer" >
+                                      <mat-radio-button name="answer" ngDefaultControl [value]="true" >بله</mat-radio-button>
+                                      <mat-radio-button name="answer" ngDefaultControl [value]="false" >خیر</mat-radio-button>
+                                    </mat-radio-group>
+                                  </mat-list-item>
+                                  <mat-divider *ngIf="question.type == theme.enName"></mat-divider>
+                            </mat-list>
+                        </mat-step>
+                    </mat-horizontal-stepper>
+                </div>
+                <div class="col-1"></div>
+          </div>
+      </mat-step>
+      <mat-step label="صلاحیت ها">
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                    <mat-horizontal-stepper>
+                            <mat-step *ngFor="let theme of this.themesService.themes" label="{{theme.faName}}">
+                                <mat-list *ngFor="let question of getCompetencyQs(theme.enName)">
+                                    <mat-list-item *ngIf="question.type == theme.enName">
+                                        <label> {{question.text}}
+                                        </label>
+                                    </mat-list-item>
+                                    <mat-list-item *ngIf="question.type == theme.enName">
+                                        <mat-radio-group [(ngModel)]="question.answer" >
+                                          <mat-radio-button name="answer" ngDefaultControl [value]="true" >بله</mat-radio-button>
+                                          <mat-radio-button name="answer" ngDefaultControl [value]="false" >خیر</mat-radio-button>
+                                        </mat-radio-group>
+                                      </mat-list-item>
+                                      <mat-divider *ngIf="question.type == theme.enName"></mat-divider>
+                                </mat-list>
+                            </mat-step>
+                        </mat-horizontal-stepper>
+            </div>
+            <div class="col-1"></div>
+        </div>
+      </mat-step>
+      <mat-step label="مشاغل">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-10">
+                        <mat-horizontal-stepper>
+                                <mat-step *ngFor="let theme of this.themesService.themes" label="{{theme.faName}}">
+                                    <mat-list *ngFor="let question of getJobQs(theme.enName)">
+                                        <mat-list-item *ngIf="question.type == theme.enName">
+                                            <label> {{question.text}}
+                                            </label>
+                                        </mat-list-item>
+                                        <mat-list-item *ngIf="question.type == theme.enName">
+                                            <mat-radio-group [(ngModel)]="question.answer" >
+                                              <mat-radio-button name="answer" ngDefaultControl [value]="true" >بله</mat-radio-button>
+                                              <mat-radio-button name="answer" ngDefaultControl [value]="false" >خیر</mat-radio-button>
+                                            </mat-radio-group>
+                                          </mat-list-item>
+                                          <mat-divider *ngIf="question.type == theme.enName"></mat-divider>
+                                    </mat-list>
+                                </mat-step>
+                            </mat-horizontal-stepper>
+                </div>
+                <div class="col-1"></div>
+                </div>
+      </mat-step>
+      <mat-step label="ارزیابی مهارتهای فردی">
+          <app-self-skill-evaluation></app-self-skill-evaluation>
+      </mat-step>
+      <mat-step label="ارزیابی استعدادهای فردی" >
+          <app-self-ability-evaluation></app-self-ability-evaluation>
+      </mat-step>
+      <mat-step label="نتایج">
+          <app-result></app-result>
+      </mat-step>
+    
+    </mat-horizontal-stepper>
